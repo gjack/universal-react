@@ -1,10 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
-import ContactsApp from './app/components/ContactsApp';
+import {match, Router, browserHistory} from 'react-router';
+import routes from './app/routes';
 
-let initialData = document.getElementById('initial-data').textContent;
-if(initialData.length > 0) {
-  initialData = JSON.parse(initialData);
-}
-
-render(<ContactsApp initialData={initialData} />, document.getElementById('root'));
+match({history: browserHistory, routes }, (error, redirectLocation, renderProps) => {
+  render(
+  <Router {...renderProps}>{routes}</Router>, document.getElementById('root'))
+});
