@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=express:* babel-node server.js"
+    "server": "DEBUG=express:* babel-node --debug server.js",
+    "build": "NODE_ENV=production webpack -p",
+    "start": "npm run build && npm run server"
   },
   "keywords": [],
   "author": "Gabi Jack",
@@ -19,6 +21,9 @@
     "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
     "webpack": "^1.13.2"
   }
 }
